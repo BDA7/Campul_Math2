@@ -172,7 +172,7 @@ if __name__ == '__main__':
     print('Вывести в файл/консоль(1/0)')
     viv = input()
     if viv == 1:
-        with open('l', 'w') as file:
+        with open('l.txt', 'w') as file:
             file.writelines(answer)
     else:
         print(answer)
