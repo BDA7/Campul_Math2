@@ -104,6 +104,7 @@ def printGraph(a, b):
 if __name__ == '__main__':
     answerGiven = True
     scannerline = True
+    inputCorrect = True
     x3 = 1
     x2 = 4.81
     x1 = -17.37
@@ -127,22 +128,28 @@ if __name__ == '__main__':
             finally:
                 pathh.close()
         else:
-            print('Коэффициент перед x^3: ')
-            x3 = float(input())
-            print('Коэффициент перед x^2: ')
-            x2 = float(input())
-            print('Коэффициент перед x^1: ')
-            x1 = float(input())
-            print('Свободный член: ')
-            k = float(input())
-            print('Левая граница приближения: ')
-            a = float(input())
-            print('Правая граница приближения: ')
-            b = float(input())
-            print('Погрешность: ')
-            eps = float(input())
-            answerGiven = True
-            scannerline = False
+            while inputCorrect:
+                try:
+                    print('Коэффициент перед x^3: ')
+                    x3 = float(input())
+                    print('Коэффициент перед x^2: ')
+                    x2 = float(input())
+                    print('Коэффициент перед x^1: ')
+                    x1 = float(input())
+                    print('Свободный член: ')
+                    k = float(input())
+                    print('Левая граница приближения: ')
+                    a = float(input())
+                    print('Правая граница приближения: ')
+                    b = float(input())
+                    print('Погрешность: ')
+                    eps = float(input())
+                    answerGiven = True
+                    scannerline = False
+                    inputCorrect = False
+                except:
+                    print('Введите корректные данные!!!')
+                    continue
 
     print('Выберите метод: \n' +
           '1. Половинного деления \n' +
@@ -173,7 +180,9 @@ if __name__ == '__main__':
     print('Вывести в файл/консоль(1/0)')
     viv = input()
     if viv == 1:
+        print('значит вы выбрали файл.')
         with open('l.txt', 'w') as file:
             file.writelines(answer)
     else:
+        print('Ваш выбор сделан.')
         print(answer)
