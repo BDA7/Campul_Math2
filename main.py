@@ -184,5 +184,5 @@ if __name__ == '__main__':
         with open('l.txt', 'w') as file:
             file.writelines(answer)
     else:
-        print('Ваш выбор сделан.')
+        print('Ваш выбор сделан, даже если вы этого не хотели')
         print(answer)
