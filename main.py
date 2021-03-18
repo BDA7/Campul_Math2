@@ -1,6 +1,9 @@
 # coding=utf-8
 import matplotlib.pyplot as plt
 import numpy as np
+import prettytable as PrettyTable
+
+
 def func1(x3, x2, x1, k, a, b, eps):
     c=0
     x=0
@@ -98,52 +101,48 @@ def printGraph(a,b):
     plt.show()
 
 
-
 if __name__ == '__main__':
     answerGiven = True
     scannerline = True
-    x3=1
-    x2=4.81
-    x1=-17.37
-    k=5.38
-    a=0
-    b=3
-    eps=0.01
-
+    x3 = 1
+    x2 = 4.81
+    x1 = -17.37
+    k = 5.38
+    a = 0
+    b = 3
+    eps = 0.01
 
     while scannerline:
-         print('Ввод из файла/из строки (1/0): ')
-         mes = input()
-         if mes == 1:
-             try:
-                 pathh = open('lol', 'r')
-                 x3,x2,x1,k = map(float,pathh.readline().split(' '))
-                 a,b = map(float,pathh.readline().split(' '))
-                 eps = float(pathh.readline())
+        print('Ввод из файла/из строки (1/0): ')
+        mes = input()
+        if mes == 1:
+            try:
+                pathh = open('lol', 'r')
+                x3, x2, x1, k = map(float, pathh.readline().split(' '))
+                a, b = map(float, pathh.readline().split(' '))
+                eps = float(pathh.readline())
 
-
-
-                 answerGiven = True
-                 scannerline = False
-             finally:
-                 pathh.close()
-         else:
-             print('Коэффициент перед x^3: ')
-             x3 = float(input())
-             print('Коэффициент перед x^2: ')
-             x2 = float(input())
-             print('Коэффициент перед x^1: ')
-             x1 = float(input())
-             print('Свободный член: ')
-             k = float(input())
-             print('Левая граница приближения: ')
-             a = float(input())
-             print('Правая граница приближения: ')
-             b = float(input())
-             print('Погрешность: ')
-             eps = float(input())
-             answerGiven = True
-             scannerline = False
+                answerGiven = True
+                scannerline = False
+            finally:
+                pathh.close()
+        else:
+            print('Коэффициент перед x^3: ')
+            x3 = float(input())
+            print('Коэффициент перед x^2: ')
+            x2 = float(input())
+            print('Коэффициент перед x^1: ')
+            x1 = float(input())
+            print('Свободный член: ')
+            k = float(input())
+            print('Левая граница приближения: ')
+            a = float(input())
+            print('Правая граница приближения: ')
+            b = float(input())
+            print('Погрешность: ')
+            eps = float(input())
+            answerGiven = True
+            scannerline = False
 
     print('Выберите метод: \n' +
           '1. Половинного деления \n' +
@@ -155,15 +154,15 @@ if __name__ == '__main__':
 
     while answerGiven:
         if give == 1:
-            printGraph(a,b)
+            printGraph(a, b)
             answer = func1(x3, x2, x1, k, a, b, eps)
             answerGiven = False
         elif give == 2:
-            printGraph(a,b)
+            printGraph(a, b)
             answer = func3(x3, x2, x1, k, b, eps)
             answerGiven = False
         elif give == 3:
-            printGraph(a,b)
+            printGraph(a, b)
             answer = func5(x3, x2, x1, k, a, b, eps)
             answerGiven = False
         else:
