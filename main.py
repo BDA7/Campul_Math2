@@ -4,8 +4,8 @@ import numpy as np
 
 
 def func1(x3, x2, x1, k, a, b, eps):
-    c=0
-    x=0
+    c = 0
+    x = 0
     n = 0
     count = 0
     answer = ''
@@ -17,7 +17,7 @@ def func1(x3, x2, x1, k, a, b, eps):
         else:
             a = c
             x = (a + b) / 2
-        count+=1
+        count += 1
         answer += str(count) + '. n = ' + str(n) + '; a = ' + str(a) + '; b =' + str(b) + '; x = ' + str(
             x) + '; f(a) = ' + str(f(a, x3, x2, x1, k)) + '; f(b) = ' + str(f(b, x3, x2, x1, k)) + '; f(x) = ' + str(
             f(c, x3, x2, x1, k)) + '; abs(a-b) = ' + str(abs(a - b)) + '\n'
@@ -35,7 +35,7 @@ def func3(x3, x2, x1, k, b=3, eps=0.01):
     answer += str(count) + '. ' + 'xi-1 = ' + str(tmp_1) + '; xi = ' + str(tmp_2) + '; \n'
 
     while abs(tmp - tmp_2) > eps and (f(tmp, x3, x2, x1, k) / f1(tmp, x3, x2, x1)) > eps:
-        count+=1
+        count += 1
         answer += str(count) + '. ' + 'xi-1 = ' + str(tmp_1) + '; xi = ' + str(tmp_2) + '; \n'
         tmp = tmp_1
         tmp_1 = tmp_2
@@ -52,7 +52,7 @@ def func5(x3, x2, x1, k, a, b, eps):
     answer = ''
     x = 5
     count = 0
-    x = searchX(MIN_RANGE, MAX_RANGE,x, x3, x2, x1)
+    x = searchX(MIN_RANGE, MAX_RANGE, x, x3, x2, x1)
     lambd = getLambda(x, x3, x2, x1)
     x0 = x
     x = x - lambd * (pow(x, 3) + x2 * pow(x, 2) + x1 * x + k)
@@ -62,14 +62,14 @@ def func5(x3, x2, x1, k, a, b, eps):
         x0 = x
         x = x - lambd * (pow(x, 3) + x2 * pow(x, 2) + x1 * x + k)
         fx = pow(x0, 3) + x2 * pow(x0, 2) + x1 * x0 + k
-        count+=1
+        count += 1
         answer += str(count) + '. ' + 'x0 = ' + str(x0) + '; fx = ' + str(fx) + '; \n'
     answer += 'Ответ: ' + str(x0)
     return answer
 
 
 def f(x, x3, x2, x1, k):
-    return x3 * pow(x, 3) + x2 * x + x1 + k
+    return x3 * pow(x, 3) + x2 * pow(x,2) + x1*x + k
 
 
 def f1(x, x3, x2, x1):
@@ -92,7 +92,8 @@ def searchX(min_range, max_range, x, x3, x2, x1):
 def getLambda(x, x3, x2, x1):
     return 1 / (3 * x3 * pow(x, 2) - 2 * x2 * x - x1)
 
-def printGraph(a,b):
+
+def printGraph(a, b):
     fig, ax = plt.subplots()
     x = np.linspace(a, b, 100)
     y = 3 * x3 * pow(x, 2) - 2 * x2 * x - x1
@@ -149,7 +150,6 @@ if __name__ == '__main__':
           '3. Метод простой итерации \n' +
           'Ваш ответ: ')
     answer = ''
-
 
     while answerGiven:
         give = input()
