@@ -1,7 +1,6 @@
 # coding=utf-8
 import matplotlib.pyplot as plt
 import numpy as np
-import prettytable as PrettyTable
 
 
 def func1(x3, x2, x1, k, a, b, eps):
