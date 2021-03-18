@@ -116,12 +116,10 @@ if __name__ == '__main__':
          mes = input()
          if mes == 1:
              try:
-                 print('Введите название файла: ')
-                 # filename = input()
                  pathh = open('lol', 'r')
                  x3,x2,x1,k = map(float,pathh.readline().split(' '))
                  a,b = map(float,pathh.readline().split(' '))
-                 eps = map(float,pathh.readline().split(' '))
+                 eps = float(pathh.readline())
 
 
 
