@@ -149,9 +149,10 @@ if __name__ == '__main__':
           '3. Метод простой итерации \n' +
           'Ваш ответ: ')
     answer = ''
-    give = input()
+
 
     while answerGiven:
+        give = input()
         if give == 1:
             printGraph(a, b)
             answer = func1(x3, x2, x1, k, a, b, eps)
